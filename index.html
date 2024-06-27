@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+    <body>
+        <input id="start" class="rounded-md border border-gray-700" placeholder="Start?" />
+
+        <input id="end" class="rounded-md border border-gray-700" placeholder="End?" />
+        <button onclick="getPrime()" class="rounded-md bg-indigo-700 py-1 px-5">Get Prime</button>
+
+        <div id="result"></div>
+
+        <script>
+
+            function getPrime() {
+                let start = document.getElementById('start').value;
+                let end = document.getElementById('end').value;
+                let resultDiv = document.getElementById('result');
+                if (start > end) {
+                    return [];
+                }
+                resultDiv.innerHTML = "";
+                const result = [];
+                for (let num = start; num <= end; num++) {
+                    let prime = true; //boolean
+                    for (let i = 2; i < num; i++) {
+                        if (num % i == 0) {
+                            prime = false;
+                            break;
+                        }
+                    }
+                    if (prime) {
+                        result.push(num);
+                    }
+                }
+                return (resultDiv.innerHTML += `<p>${result}</p>`);
+                ;
+            }
+        </script>
+
+    </body>
+
+</html>
